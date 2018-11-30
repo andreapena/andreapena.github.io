@@ -1,0 +1,258 @@
+<!DOCTYPE html Frameset DTD>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css"
+    href="style.css">
+
+    <meta charset="UTF-8">
+    <title>BLACKBOX</title>
+
+    <style>
+      body {
+        padding: 40px;
+      }
+
+      .file {
+        margin-top: 24px;
+        font-weight: bold;
+      }
+
+      .text {
+        border-style: solid;
+        border-width: 1px;
+        padding: 20px;
+      }
+
+      #drop_zone {
+        padding: 20px;
+        border-style: solid;
+        width: 500px;
+        text-align: center;
+      }
+
+    h1 {color:red;}
+    h2 {color:blue; font-family: courier;}
+    p {color:black; font-family: courier;font-weight: bold}
+
+    </style>
+
+   
+  </head>
+
+  <body>
+
+    <br>
+    <br>
+     <h1><p><font face="helvetica" color="blue">KEY WORD</h1></font></p>
+    <br>
+
+    <p> Search a key word and I will present to you a collection of texts from my human's research thesis for you to navigate and explore. 
+    </p>
+    <br>
+     <form id="searchForm">
+    <p> Key Word Search: <input id = "searchField" type="text" name="searchTerm" value="ie. Spatiality">
+    <!-- Second Key Word Search: <input type="text" name="Key Word 2" value="ie. Corporality"> -->
+    <br>
+    <input id = "searchButton" type="submit" value="discover"> 
+    <br>
+
+    <p>
+
+    </form>
+
+<!--   <be sent to a page on the server called "/action_page.php".</p>
+   -->
+  <br>
+
+  <p id = "textContainer">
+  SPATIALITY : Gretchen Schiller, (2008), proposes a choreomedia; as the organization of a <a id ="kinesthetic" href ="#">kinesthetic</a> movement qualities, through artistic acts of temporal, spatial and qualitative rapport of people, objects, media and physical space” (2008, 433). I extend Schillers term towards a choreomediation: as the eliciting of actions on the body through the prompting affordances of the built environment. A choreomediation where the affording qualities and functional possibilities of objects, 'dictated’ by designers, proscribes the actions of the individual. Choreography thus as a kinaesthetic inscription is not only embodied in the structural composition of design interactions, yet generated through industrial and homogenizing means. 
+  </p>
+  <br>
+  <br>
+
+  <div id = "pathResults"></div>
+ <script>
+     
+  
+  var path =[];
+// script is placed on the bottom so it is called last
+  var paragraphs = [];
+  paragraphs.push("The project began as a critical and speculative propositional investigation, with no particular final prototype in mind; rather it was structured as an <a id = 'inquisitive' href ='#' onclick = 'getLink(this,1);'>inquisitive</a> process, open to the variables discovered as means of investigation and information. The project was rooted within a cross- disciplinary practice in design, performativity and choreography to explore the choreographed sensory experiences and gestures found within the interaction of body to chair. Sensory experiences and interactions challenged by possible interfacial adaptations and negotiations between an organic body and artificial materiality. In parallel to an enquiry between the interfacial adaptation of the chair, this artifact is regarded from the performative perspective of Gretchen Schiller’s choreomedia; the organization of kinesthetic or movement qualities, through artistic acts of temporal, spatial and qualitative rapport of people, objects, media and physical space” (2008,433). I extend Schillers term towards, <a id = 'choreomediation' href ='#' onclick = 'getLink(this,4);'>choreomediation</a>: as the eliciting of actions on a human through the material design medium. A choreomediation where the moral potency of objects and their ‘delegated’ functions by designers proscribes the actions of the individual. Parviainen, Tuuri and Pirhonen use choreographic perspectives to question and further understand the “bodily movements and other activities, in which movements appear to form meaningful interactions and relations between different animate or inanimate agents,” (2013, 109). Such relations between agents, are thus shaped by “strings of artifacts” or “symbols”: interconnected laws that determine or pre-dispose content and consequence within the <a id = 'artificial' href ='#' onclick = 'getLink(this,5);'>artificial</a> and the natural (Herbert, 1996, 3). It is such strings of artifacts that are metaphorically transposed into the investigation of the choreographic interplay, interaction and consequence between the body and chair.",
+
+    "INQUISITIVE METHODOLOGIES: <br><br> The project was divided into a set of individual yet overlapping experimental “multi- sited” (Marcus, 1995) research studies; multi-sited as “designed around chains, paths, threads, conjunctions and juxtapositions of locations” where by “the object of study may itself not be known before but emerges based on the links and associations assembled” (Salter, 2015,12). Such studies as means to approach questions of <a id = 'embodiment' href ='#' onclick = 'getLink(this,2);'>embodiment</a> embodiment and somatic experiences from varying practices, perspectives, methods and technologies that engage with, on and through the body. A somaesthetic practice, as inspired by Richard Shusterman, in Thinking Through the Body, as means of active embodied, <a id = 'space' href ='#' onclick = 'getLink(this,3);'>spatial</a> and perceptual engagement, taking “the material body seriously as a valuable dimension of human experience and knowledge,” (2012, 3).",
+
+    "EMBODIED PERFORMANCE: <br><br> Performance frames time and space as singular and unrecoverable and this is in direct contradiction to a record in which time and space are constructed as fixed and reproductive. Therefore the record is predicated on the idea of a control of time and <a id = 'space' href ='#' onclick = 'getLink(this,3);'>space</a> space: that time and space can be captured, recovered and repeated, which in turn provides the document with a type of convenience and accessibility. The danger exists in that, through this accessibility, an ease of consumption is produced and the record can all too quickly become a substitute for the live event it re-presents, a substitute that cannot provide evidence of exactly the thing it purports to record. To continue this line of thinking, as we know, leads us to abandon any hope of producing an effective record of performance. However, if our practice is to function effectively as research beyond the experience of the immediate performance we have to find types of document that can speak about this inherent paradox: that is, documents that do not suggest an unproblematic transparency between the live event and its record and therefore that the two cannot be conflated.",
+
+  );
+
+  // calls the document that has been pre determined by its ID > in this case ID has been assigned to Kinesthetic
+  document.getElementById("kinesthetic").addEventListener("click", function()
+  {
+    getLink(this,0);
+  });
+
+  document.getElementById("searchButton").addEventListener("click", function(event)
+  {
+    event.preventDefault();
+    searchFunction();
+  });
+
+  // function searchFunction(){
+
+  //   var a = document.getElementById("searchForm").submit();
+  //   console.log(a);
+
+  //   // for each paragraph
+  //   // search for 'keyword' in paragraph
+  //   // if searchterm === "paragraphname"
+
+  //   if (searchTerm) === "embodiment"{
+  //     getLink(this,3);
+  //   }
+  // }
+
+function searchFunction() {
+
+  console.log(document.getElementById("searchField").value);
+  let searchTerm = document.getElementById("searchField").value;
+    // if(searchTerm === "speculative"){
+  // //you got it
+  // //getLink(this,3);
+ 
+  if(searchTerm === "choreography"){
+    //console.log("match"+searchTerm);
+    // var paragraph = document.createElement("P");
+    // var text = document.createTextNode("This is a paragraph.");
+    // paragraph.appendChild(text);
+    // document.body.appendChild(paragraph);
+
+    //button onclick= searchFunction()
+   // getLink("speculative",3);
+   getLinkFromKeyWord("choreography",0);
+
+  }
+
+  if(searchTerm === "methodologies"){
+    //console.log("match"+searchTerm);
+    // var paragraph = document.createElement("P");
+    // var text = document.createTextNode("This is a paragraph.");
+    // paragraph.appendChild(text);
+    // document.body.appendChild(paragraph);
+
+    //button onclick= searchFunction()
+   // getLink("speculative",3);
+   getLinkFromKeyWord("methodologies",1);
+    }
+
+if(searchTerm === "performance"){
+    //console.log("match"+searchTerm);
+    // var paragraph = document.createElement("P");
+    // var text = document.createTextNode("This is a paragraph.");
+    // paragraph.appendChild(text);
+    // document.body.appendChild(paragraph);
+
+    //button onclick= searchFunction()
+   // getLink("speculative",3);
+   getLinkFromKeyWord("performance",2);
+
+  }
+
+  if(searchTerm === "spatiality"){
+    //console.log("match"+searchTerm);
+    // var paragraph = document.createElement("P");
+    // var text = document.createTextNode("This is a paragraph.");
+    // paragraph.appendChild(text);
+    // document.body.appendChild(paragraph);
+
+    //button onclick= searchFunction()
+   // getLink("speculative",3);
+   getLinkFromKeyWord("spatiality",3);
+  }
+
+  else
+  {
+  console.log("no match "+searchTerm);
+  }
+
+}
+
+
+///// starts from here
+  function getLinkFromKeyWord(el,paragraphNum){
+    // calls the word clicked on the console to start to recognize what word was called
+      console.log("clicked"+el);
+      path.push(el);
+
+      if(typeof(Storage) !=="undefined"){
+
+        if(localStorage.getItem(el) ===null){
+
+        localStorage.setItem(el,1);
+        }
+
+        else
+        {
+        var count = parseInt(localStorage.getItem(el));
+        count =count+1;
+        localStorage.setItem(el,count);
+
+        }
+      }
+      else{
+        console.log("No browser support");
+      }
+
+      // re calls this function by calling a set of the pre dictated array > ie var paragraph above
+      document.getElementById("textContainer").innerHTML = paragraphs[paragraphNum];
+     
+
+     var result = document.createElement("p");
+     result.innerHTML = el+":" + count;
+     // console.log(result);
+
+      document.getElementById("pathResults").appendChild(result);
+
+  }
+
+// ///// starts from here
+  function getLink(el,paragraphNum){
+    // calls the word clicked on the console to start to recognize what word was called
+      console.log("clicked"+el.text);
+      path.push(el.text);
+
+      if(typeof(Storage) !=="undefined"){
+
+        if(localStorage.getItem(el.text) ===null){
+
+        localStorage.setItem(el.text,1);
+        }
+
+        else
+        {
+        var count = parseInt(localStorage.getItem(el.text));
+        count =count+1;
+        localStorage.setItem(el.text,count);
+
+        }
+       }
+
+      else{
+        console.log("No browser support");
+      }
+      console.log(localStorage.getItem(el.text));
+
+      // re calls this function by calling a set of the pre dictated array > ie var paragraph above
+      document.getElementById("textContainer").innerHTML = paragraphs[paragraphNum];
+
+      var result = document.createElement("p");
+      result.innerHTML = el.text+":" + count;
+      console.log(result);
+
+      document.getElementById("pathResults").appendChild(result);
+
+  }
+
+</script>
+  
+  </body>
+</html>

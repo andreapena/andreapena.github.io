@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>TF-IDF</title>
+
+    <style>
+      body {
+        padding: 40px;
+      }
+
+      .file {
+        margin-top: 24px;
+        font-weight: bold;
+      }
+
+      .text {
+        border-style: solid;
+        border-width: 1px;
+        padding: 20px;
+      }
+
+        #reflectionResults {
+        color: black; 
+        font-family: courier;
+      }
+
+    h1 {color:red;}
+    h2 {color:blue; font-family: courier}
+    p {color:black; font-family: courier;font-weight: bold}
+    </style>
+
+  <body>
+
+    <br>
+    <br>
+    <h1><p><font face="helvetica" color="blue">IN MOTION LOG 2</h1></font></p> 
+    <br>
+    <p>View the videos below (all or one at a time) and share with me your observations. Type and log any notes, curiosities, comments and refelctions. 
+    </p> 
+    <br>
+    <br>
+    <br>
+
+    <video width="480" height="270" controls>
+      <source src="full-sequence.mp4" type="video/mp4">
+    </video>    
+    <br>
+    <br>
+    <textarea rows="4" cols="82" id="reflections" > Type in any observations, interesting thoughts, what ever ctches your attention....
+    </textarea>
+   
+    <form>
+        <input type="button" onclick="myReflection()" value="Log">
+    </form>
+    <br>
+    <br>
+    <div id = "reflectionResults"></div>
+
+    </body>
+
+    <script type ="text/javascript">
+        let myObj = {
+            name: "domenic",
+            age: 56
+        };
+
+        // JSON function for storing strings as an array, string representation
+        let myObj_serialized = JSON.stringify(myObj);
+        //local storage what was generated from JSON
+        localStorage.setItem("myObj",myObj_serialized);
+        //console this stored infromation
+        console.log(localStorage);
+        // sourec = https://www.youtube.com/watch?v=AUOzvFzdIk4)
+
+        let myObj_deserialized = JSON.parse(localStorage.getItem("myObj"));
+        // convert back into a string 
+
+        console.log(myObj_deserialized);
+
+
+    var users = new Array ();
+    users.push('Theo','Mark', 'Andy');
+
+    var JSONReadyUsers = JSON.stringify(users);
+    console.log(JSON.parse(localStorage['users']));
+    localStorage.setItem('users',JSONReadyusers);
+
+    </script>
+
+
+
+     <br>
+    <br>
+
+    <video width="480" height="270" controls>
+      <source src="Sitting on a chair.mp4" type="video/mp4">
+    </video>    
+    <br>
+    <br>
+    <textarea rows="4" cols="82" id="reflections" > Type in any observations, interesting thoughts, what ever ctches your attention....
+    </textarea>
+   
+    <form>
+        <input type="button" onclick="myReflection()" value="Log">
+    </form>
+    <br>
+    <br>
+    <div id = "reflectionResults"></div>
+
+    </body>
+
+    <script type ="text/javascript">
+        let myObj = {
+            name: "domenic",
+            age: 56
+        };
+
+        // JSON function for storing strings as an array, string representation
+        let myObj_serialized = JSON.stringify(myObj);
+        //local storage what was generated from JSON
+        localStorage.setItem("myObj",myObj_serialized);
+        //console this stored infromation
+        console.log(localStorage);
+        // sourec = https://www.youtube.com/watch?v=AUOzvFzdIk4)
+
+        let myObj_deserialized = JSON.parse(localStorage.getItem("myObj"));
+        // convert back into a string 
+
+        console.log(myObj_deserialized);
+
+
+    var users = new Array ();
+    users.push('Theo','Mark', 'Andy');
+
+    var JSONReadyUsers = JSON.stringify(users);
+    console.log(JSON.parse(localStorage['users']));
+    localStorage.setItem('users',JSONReadyusers);
+
+    </script>
+
+
+</html> 
+  

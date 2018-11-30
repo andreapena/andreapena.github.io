@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>TF-IDF</title>
+
+    <style>
+      body {
+        padding: 40px;
+      }
+
+      .file {
+        margin-top: 24px;
+        font-weight: bold;
+      }
+
+      .text {
+        border-style: solid;
+        border-width: 1px;
+        padding: 20px;
+      }
+
+      #reflectionResults {
+      color: blue; 
+      font-family: courier;
+      }
+
+    h1 {color:red;}
+    h2 {color:blue; font-family: courier}
+    p {color:black; font-family: courier;font-weight: bold}
+
+    </style>
+
+  <body>
+
+    <br>
+    <br>
+    <h1><p><font face="helvetica" color="blue">IN MOTION LOG</h1></font></p> 
+    <br>
+    <p>View the videos below (all or one at a time) and share with me your observations. Type and log any notes, curiosities, comments and refelctions. 
+    </p>
+
+    <br><br>
+
+    <video width="480" height="270" controls>
+      <source src="Part 2.mp4" type="video/mp4">
+    </video>    
+    <br>
+    <br>
+    <textarea rows="4" cols="82" id="reflections" > Type in any observations, interesting thoughts, what ever ctches your attention....
+    </textarea>
+
+  </body>
+   
+    <form>
+        <input type="button" onclick="myReflection()" value="Log">
+    </form>
+    <br>
+    <br>
+    <div id = "reflectionResults" ></div>
+            
+ <script>
+
+      function myReflection() {
+          console.log(document.getElementById("reflections").value);
+          localStorage.setItem('reflections',document.getElementById("reflections").value);
+          // ability to store a list
+          // array 
+          // storing an array in locall storage 
+
+          var aValue = localStorage.getItem("reflections");
+          document.getElementById("reflectionResults").innerHTML = aValue;
+        }
+     
+    </script>
+
+
+
+
+    <br> 
+    <br>
+    <video width="480" height="270" controls>
+      <source src="VIDEO 3.mp4" type="video/mp4">
+    </video>    
+    <br>
+    <br>
+    <textarea rows="4" cols="82" id="reflections" > Type in any observations, interesting thoughts, what ever ctches your attention....
+    </textarea>
+
+  </body>
+   
+    <form>
+        <input type="button" onclick="myReflection()" value="Log">
+    </form>
+    <br>
+    <br>
+    <div id = "reflectionResults" ></div>
+            
+ <script>
+
+      function myReflection() {
+          console.log(document.getElementById("reflections").value);
+          localStorage.setItem('reflections',document.getElementById("reflections").value);
+          // ability to store a list
+          // array 
+          // storing an array in locall storage 
+
+          var aValue = localStorage.getItem("reflections");
+          document.getElementById("reflectionResults").innerHTML = aValue;
+        }
+     
+    </script>
+
+
+</html> 
+  
